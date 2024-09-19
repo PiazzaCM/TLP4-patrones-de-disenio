@@ -19,5 +19,4 @@ export class Inventario{
         return this.equipos;
     }
     
-
 }
