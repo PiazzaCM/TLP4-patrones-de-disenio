@@ -1,6 +1,7 @@
 import { Inventario } from './singleton';
 import { EquipoFactory } from './factoryMethod';
 import { Equipo, Soporte } from './observer';
+import { AdaptadorInventario, InventarioViejo } from './adaptador';
 
 
 //singleton
@@ -25,3 +26,9 @@ soporte.cambiarEstado("en reparación");
 
 // Soporte notificado: Notebook HP ha cambiado su estado a en reparación.
 
+//adaptador
+const inventarioViejo = new InventarioViejo();
+const adaptador = new AdaptadorInventario(inventarioViejo);
+adaptador.agregarEquipo("Servidor Dell", "Servidor", "disponible");
+console.log(adaptador.listarEquipos());
+// [{ nombre: "Servidor Dell", tipo: "Servidor", estado: "disponible" }]
